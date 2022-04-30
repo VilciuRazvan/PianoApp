@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="styles.css">
-	
-	<title>Piano</title>
-</head> 
 
-<body> 
+	<title>Piano</title>
+</head>
+
+<body>
 	<div class="piano">
 		<div class="key white" data-note="C">A</div>
 		<div class="key black" data-note="Cs">W</div>
@@ -23,7 +23,18 @@
 		<div class="key white" data-note="A">H</div>
 		<div class="key black" data-note="As">Y</div>
 		<div class="key white" data-note="B">J</div>
+
+
+		<div class="scoreboard">
+			<div class="scoreboard score-text">Current Score: </div>
+			<div id="user-score" class="scoreboard score-text score-score"></div>
+			<div id="hint" class="scoreboard score-text notes"></div>
+		</div>
+
+		
+
 	</div>
+	<button id="btn" type="button" >START</button>
 
 	<audio src="./notes/C4.mp3" id="C"></audio>
 	<audio src="./notes/Cs4.mp3" id="Cs"></audio>
@@ -39,7 +50,6 @@
 	<audio src="./notes/B4.mp3" id="B"></audio>
 
 	<script src="index.js"></script>
-</body> 
+</body>
+
 </html>
-
-

@@ -56,3 +56,43 @@
     background-color: #333;
   }
   
+  .scoreboard{
+    height: 100vh;
+    width: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .score-text{
+    color: red;
+    font-size: 5vh;
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+
+  .score-score{
+    color: pink;
+    margin-top: -12rem;
+  }
+
+  .notes{
+    margin-top: -0rem;
+  }
+
+  #btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    left: 75%;
+    bottom: 45%;
+    border-radius: 12px;
+  }
