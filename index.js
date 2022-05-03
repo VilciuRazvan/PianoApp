@@ -86,13 +86,16 @@ keys.forEach((key) => {
 document.addEventListener('keydown', (e) => {
   if (e.repeat) return;
   const key = e.key;
-  const whiteKeyIndex = whites.indexOf(key);
-  const blackKeyIndex = blacks.indexOf(key);
+  if (all_notes.includes(key)) {
+    const whiteKeyIndex = whites.indexOf(key);
+    const blackKeyIndex = blacks.indexOf(key);
 
-  if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex]);
-  if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex]);
+    if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex]);
+    if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex]);
 
-  check_correct_note(key, sequence)
+    if (game_status == 'started')
+      check_correct_note(key, sequence)
+  }
 });
 
 
@@ -105,6 +108,7 @@ button.addEventListener('click', () => {
     sequence = []
   }
   game_status = 'started'
+  button.style.left = '73%';
   button.style.backgroundColor = 'transparent'
   button.innerText = ''
   button.setAttribute('disabled', "")

@@ -30,7 +30,7 @@
   }
   
   .white {
-    width: 9%;
+    width: 10%;
     min-width: 60px;
     height: 70%;
     background-color: white;
@@ -92,7 +92,66 @@
     display: inline-block;
     font-size: 16px;
     position: absolute;
-    left: 75%;
+    left: 74.5%;
     bottom: 45%;
     border-radius: 12px;
+  }
+
+  .actual-notes{
+    position: absolute;
+    top: 2.5%;
+    z-index:3
+  }
+
+  .C{
+    left: 4.5%;
+  }
+
+  .Cs{
+    left: 9.5%;
+    color:white;
+  }
+
+  .D{
+    left: 14.5%;
+  }
+
+  .Ds{
+    left: 19.5%;
+    color: white;
+  }
+
+  .E{
+    left: 24.5%;
+  }
+
+  .F{
+    left: 34.5%;
+  }
+
+  .Fs{
+    left: 39.5%;
+    color: white;
+  }
+
+  .G{
+    left: 44.5%;
+  }
+
+  .Gs{
+    left: 49.5%;
+    color: white;
+  }
+
+  .A{
+    left: 54.5%;
+  }
+
+  .As{
+    left: 59.5%;
+    color: white;
+  }
+
+  .B{
+    left: 65.5%;
   }
