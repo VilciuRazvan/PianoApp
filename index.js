@@ -8,19 +8,18 @@ const whites = ['a', 's', 'd', 'f', 'g', 'h', 'j'];
 const blacks = ['w', 'e', 'r', 't', 'y'];
 const all_notes = whites.concat(blacks);
 
-const notes_hint = document.getElementById('hint')
 const user_score = document.getElementById('user-score')
 
 let user_interact = false;
 let current_note_counter = 0;
 let notes_to_play = 0;// = level
 let sequence = [];
-let hint = 'WASD' // to be randomized
 let score = 0
 let game_status = 'notstarted'
+let note_validity = false
+
 const button = document.querySelector('#btn');
 
-notes_hint.textContent = sequence
 user_score.textContent = score
 
 
@@ -49,23 +48,29 @@ async function play_demo_notes() {
 }
 
 let check_correct_note = (key) => {
-  console.log(game_status)
   if (game_status != 'lost' && game_status != 'won') {
     if (sequence[current_note_counter] == key) {
       current_note_counter++
       score++
       user_score.textContent = score
+
+
       if (current_note_counter == notes_to_play) {
         button.style.backgroundColor = '#4CAF50'
         button.innerText = "Next Level"
         button.disabled = false
         game_status = 'won'
       }
+
+      return true
+
     } else { // GAME OVER
       button.style.backgroundColor = '#4CAF50'
       button.innerText = "Play Again"
       button.disabled = false
       game_status = 'lost'
+      //notes_to_play = 0
+      return false
     }
   }
 }
@@ -90,11 +95,15 @@ document.addEventListener('keydown', (e) => {
     const whiteKeyIndex = whites.indexOf(key);
     const blackKeyIndex = blacks.indexOf(key);
 
-    if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex]);
-    if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex]);
-
     if (game_status == 'started')
-      check_correct_note(key, sequence)
+      note_validity = check_correct_note(key, sequence)
+    else
+      note_validity = false
+
+    if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex], note_validity);
+    if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex], note_validity);
+
+    
   }
 });
 
@@ -107,6 +116,8 @@ button.addEventListener('click', () => {
     notes_to_play = 0
     sequence = []
   }
+
+  note_validity = false
   game_status = 'started'
   button.style.left = '73%';
   button.style.backgroundColor = 'transparent'
@@ -118,13 +129,26 @@ button.addEventListener('click', () => {
   play_demo_level(sequence);
 });
 
-let playNote = (key) => {
+
+let playNote = (key, correctness) => {
   const noteSound = document.getElementById(key.dataset.note);
   noteSound.currentTime = 0;
   noteSound.play();
   key.classList.add('active');
+
+    if (correctness)
+      key.classList.add('correct')
+    else if (!correctness && game_status == 'lost') {
+      key.classList.add('wrong')
+    }
+
   noteSound.addEventListener('ended', () => {
     key.classList.remove('active');
+    key.classList.remove('correct');
+    key.classList.remove('wrong')
+
+    if (game_status == 'lost')
+      game_status = 'notstarted'
   });
 };
 

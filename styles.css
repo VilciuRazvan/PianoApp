@@ -55,6 +55,23 @@
   .black.active {
     background-color: #333;
   }
+
+  .white.active.correct{
+    background-color: #7CB68E;/*#6CAC7F;*/
+  }
+
+  .black.active.correct{
+    background-color: #7CB68E;
+  }
+
+
+  .white.active.wrong{
+    background-color: red;
+  }
+  .black.active.wrong{
+    background-color: red;
+  }
+
   
   .scoreboard{
     height: 100vh;
