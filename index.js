@@ -48,7 +48,9 @@ async function play_demo_notes() {
 }
 
 let check_correct_note = (key) => {
-  if (game_status != 'lost' && game_status != 'won') {
+  if (game_status == 'lost' || game_status == 'won')
+    return;
+  //if (game_status != 'lost' && game_status != 'won') {
     if (sequence[current_note_counter] == key) {
       current_note_counter++
       score++
@@ -72,7 +74,7 @@ let check_correct_note = (key) => {
       //notes_to_play = 0
       return false
     }
-  }
+  
 }
 
 let play_demo_level = (sequence) => {
