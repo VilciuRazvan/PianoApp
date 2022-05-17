@@ -114,6 +114,22 @@
     border-radius: 12px;
   }
 
+  #btn-mode{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px 85px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    position: absolute;
+    left: 74.5%;
+    bottom: 25%;
+    border-radius: 12px;
+  }
+
+
   .actual-notes{
     position: absolute;
     top: 2.5%;
