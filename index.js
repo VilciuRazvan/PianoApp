@@ -47,10 +47,8 @@ const songs = [
 
   [
     's', 'f', 'd', 's', 'f', 's', 'd', 's', 'a', 'h', 'y', 'h'
-  ], // the godfather
-  [
-    'a', 's'
-  ]
+  ] // the godfather
+
 ];
 
 let user_interact = false;
@@ -82,6 +80,7 @@ let choose_random_song = (songs) => {
 const timer = ms => new Promise(res => setTimeout(res, ms))
 
 async function play_demo_notes(sequence) {
+  //sequence = songs[0]
   console.log(sequence)
   for (let i = 0; i < sequence.length; i++) {
     const key = sequence[i];
@@ -91,7 +90,7 @@ async function play_demo_notes(sequence) {
     if (whiteKeyIndex > -1) playNote(regulars[whiteKeyIndex]);
     if (blackKeyIndex > -1) playNote(sharps[blackKeyIndex]);
 
-    await timer(500)
+    await timer(1000)
     // put below when completing a level
 
   }
