@@ -71,9 +71,8 @@ let add_note = (sequence) => {
   notes_to_play++
 }
 
-let choose_random_song = (songs) => {
-  return songs[ (Math.random() * songs.length) | 0 ]
-}
+let choose_random_song = (songs) => songs[ (Math.random() * songs.length) | 0 ]
+
 
 
 // Returns a Promise that resolves after "ms" Milliseconds
